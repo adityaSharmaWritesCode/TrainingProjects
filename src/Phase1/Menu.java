@@ -7,14 +7,6 @@ public class Menu extends Methods {
 	static Scanner sc = new Scanner(System.in); 
 	static boolean isEnding = false;
 	
-	public static void viewDirectory() {
-		System.out.println("Option 1 selected");
-	}
-	
-	public static void editDirectory() {
-		System.out.println("Option 2 selected");
-	}
-	
 	public static void quit() {
 		System.out.println("Program Terminated");
 		isEnding = true;
@@ -24,12 +16,15 @@ public class Menu extends Methods {
 		
 		int ch = 0;
 		
-		do {
+		Methods meth = new Methods();
 		
-			System.out.println("Application name and Developer Details\n");
-			System.out.println("Options : ");
+		do {
+			System.out.println("\n*** Main Menu ***");
+			System.out.println("\nApplication name");
+			System.out.println("Developer : Aditya Sharma");
+			System.out.println("\nOptions : ");
 			System.out.println("1. View File Names in Ascending Order");
-			System.out.println("2. Edit Directory");
+			System.out.println("2. Update Directory");
 			System.out.println("3. Close Application");
 			
 			ch = sc.nextInt();
