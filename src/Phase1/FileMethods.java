@@ -8,8 +8,6 @@ public class FileMethods {
 	
 	FileMethods() {
 		directory.clear();
-		directory.add("File1.txt");
-		directory.add("File2.txt");
 	}
 	
 	public TreeSet<String> getDirectory() {
@@ -17,25 +15,33 @@ public class FileMethods {
 	}
 	
 	protected void addFile() {
-		System.out.println("Enter the file that you want to add : ");
+		System.out.print("\tEnter the file that you want to add : ");
 		String fname = sc.next();
 		directory.add(fname);
+		System.out.println("\tFile added succesfully!!");
 	}
 	
 	protected void deleteFile() {
-		System.out.println("Enter the file that you want to delete : ");
-		String fname = sc.next();
-		directory.remove(fname);
-	}
-
-	protected void searchFile() {
-		System.out.println("Enter the file that you want to search for : ");
+		System.out.print("\tEnter the file that you want to delete : ");
 		String fname = sc.next();
 		
 		if(directory.contains(fname)) {
-			System.out.println("File is present in the directory");
+			directory.remove(fname);
+			System.out.println("\tFile deleted succesfully!!");
 		} else {
-			System.out.println("File is NOT present in the directory");
+			System.out.println("\tFile is not present in the directory.");
+		}
+		
+	}
+
+	protected void searchFile() {
+		System.out.print("\tEnter the file that you want to search for : ");
+		String fname = sc.next();
+		
+		if(directory.contains(fname)) {
+			System.out.println("\tFile is present in the directory.");
+		} else {
+			System.out.println("\tFile is NOT present in the directory.");
 		}
 		
 	}

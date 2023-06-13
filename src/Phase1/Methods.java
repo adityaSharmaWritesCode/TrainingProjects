@@ -11,9 +11,16 @@ public class Methods {
 	}
 	
 	public static void viewDirectory() {
-		System.out.println("\nDirectory : ");
-		for(String str : f.getDirectory()) {
-			System.out.println("\t" + str);
+		TreeSet<String> d = f.getDirectory();
+		
+		if(d.size() == 0) { // Empty Directory exception handling
+			System.out.println("\n\t(Empty Directory)\n");
+		}
+		else {
+			System.out.println("\n\tDirectory : ");
+			for(String str : d) {
+				System.out.println("\t\t" + str);
+			}
 		}
 	}
 	
@@ -25,11 +32,11 @@ public class Methods {
 		int ch = 0;
 		
 		do {
-			System.out.println("\nOptions : ");
-			System.out.println("1. Add File");
-			System.out.println("2. Delete File");
-			System.out.println("3. Search File");
-			System.out.println("4. Return to main menu");
+			System.out.println("\n\tDirectory Options : ");
+			System.out.println("\t1. Add File");
+			System.out.println("\t2. Delete File");
+			System.out.println("\t3. Search File");
+			System.out.print("\t4. Return to main menu\n\t");
 			ch = sc.nextInt();
 			
 			switch (ch) {
@@ -47,8 +54,7 @@ public class Methods {
 					break;
 				default: 
 				{
-					System.out.println("Invalid Input. Try again : ");
-					ch = sc.nextInt();
+					System.out.println("\t[INVALID INPUT] Try again.");
 				}
 					break;
 			}

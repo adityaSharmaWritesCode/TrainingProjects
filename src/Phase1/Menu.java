@@ -8,7 +8,7 @@ public class Menu extends Methods {
 	static boolean isEnding = false;
 	
 	public static void quit() {
-		System.out.println("Program Terminated");
+		System.out.println("\tProgram Terminated");
 		isEnding = true;
 	}
 	
@@ -18,14 +18,15 @@ public class Menu extends Methods {
 		
 		Methods meth = new Methods();
 		
+		WelcomeScreen.display();
+		
 		do {
-			System.out.println("\n*** Main Menu ***");
-			System.out.println("\nApplication name");
-			System.out.println("Developer : Aditya Sharma");
-			System.out.println("\nOptions : ");
-			System.out.println("1. View File Names in Ascending Order");
-			System.out.println("2. Update Directory");
-			System.out.println("3. Close Application");
+			
+			System.out.println("\n\t*** Main Menu ***");
+			System.out.println("\n\tOptions : ");
+			System.out.println("\t1. View Files");
+			System.out.println("\t2. Update Directory");
+			System.out.print("\t3. Close Application\n\t");
 			
 			ch = sc.nextInt();
 			
@@ -40,10 +41,7 @@ public class Menu extends Methods {
 					quit();
 					break;
 				default: 
-				{
-					System.out.println("Invalid Input. Try again : ");
-					ch = sc.nextInt();
-				}
+					System.out.println("\t[INVALID INPUT] Try again.");
 					break;
 			}
 		}while(!isEnding);
