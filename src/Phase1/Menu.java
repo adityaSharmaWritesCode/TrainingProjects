@@ -8,7 +8,7 @@ public class Menu extends Methods {
 	static boolean isEnding = false;
 	
 	public static void quit() {
-		System.out.println("\tProgram Terminated");
+		System.out.println("\n\t==== Program Terminated ====");
 		isEnding = true;
 	}
 	
@@ -22,7 +22,7 @@ public class Menu extends Methods {
 		
 		do {
 			
-			System.out.println("\n\t*** Main Menu ***");
+			System.out.println("\n\t===== Main Menu =====");
 			System.out.println("\n\tOptions : ");
 			System.out.println("\t1. View Files");
 			System.out.println("\t2. Update Directory");
