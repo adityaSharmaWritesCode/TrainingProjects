@@ -60,9 +60,21 @@ public class FileMethods {
 	protected void deleteFile(String fname) {
 		if(directory.contains(fname)) {
 			directory.remove(fname);
-			System.out.println("\n\t" + fname + " deleted succesfully!!");
+			File obj = new File(dirPath + File.separator + fname);
+			
+			try {
+				boolean isDelete = obj.delete();
+				if(isDelete) {
+					System.out.println("\n\t" + fname + " deleted succesfully.");
+				}
+				else {
+					System.out.println("\n\tFile could not be deleted.");
+				}
+			} catch (Exception e) {
+				System.out.println("\n\tError occured while deleting this file : " + e.getMessage());
+			}
 		} else {
-			System.out.println("\n\tFile is not present in the directory.");
+			System.out.println("\n\tFile not found in the directory.");
 		}
 		
 	}

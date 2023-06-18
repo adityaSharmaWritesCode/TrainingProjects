@@ -8,29 +8,24 @@ public class Menu extends Methods {
 	static boolean isEnding = false;
 	
 	public static void quit() {
-		System.out.println("\n\t==== Program Terminated ====");
+		System.out.println("\n\t==== [PROGRAM TERMINATED] ====");
 		isEnding = true;
 	}
 	
 	public static void main(String[] args) {
-		
-		int ch = 0;
-		
+				
 		Methods meth = new Methods();
+	
+		DisplayMessage.welcomeScreen();
 		
-		WelcomeScreen.display();
-		
-		do {
+		while(!isEnding) {
 			
-			System.out.println("\n\t===== Main Menu =====");
-			System.out.println("\n\tOptions : ");
-			System.out.println("\t1. View Files");
-			System.out.println("\t2. Update Directory");
-			System.out.print("\t3. Close Application\n\t");
+			DisplayMessage.mainMenu();
 			
-			ch = sc.nextInt();
-			
-			switch (ch) {
+			try {
+				int ch = sc.nextInt();
+				
+				switch (ch) {
 				case 1:
 					viewDirectory();
 					break;
@@ -41,11 +36,15 @@ public class Menu extends Methods {
 					quit();
 					break;
 				default: 
-					System.out.println("\t[INVALID INPUT] Try again.");
+					System.out.println("\t[INVALID INPUT]. Try again.");
 					break;
+				}
+				
+			} catch (Exception e) {
+				System.out.println("\t[REQUIRE NUMERIC INPUT]. Try again.");
+				sc.nextLine();
 			}
-		}while(!isEnding);
-		
+				
+		}
 	}
-
 }

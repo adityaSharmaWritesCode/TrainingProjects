@@ -7,8 +7,7 @@ public class Methods {
 	static FileMethods f;
 	
 	Methods(){
-		f = new FileMethods("C:\\Users\\Aditya Sharma\\Desktop\\Phase1-Project");
-		
+		f = new FileMethods("C:\\Users\\Aditya Sharma\\Desktop\\Phase1-Project"); // root directory
 	}
 	
 	public static void viewDirectory() {
@@ -32,47 +31,47 @@ public class Methods {
 		Scanner sc = new Scanner(System.in);
 		int ch = 0;
 		
-		do {
-			System.out.println("\n\t==== Edit Options ====");
-			System.out.println("\t1. Add File");
-			System.out.println("\t2. Delete File");
-			System.out.println("\t3. Search File");
-			System.out.print("\t4. Return to main menu\n\t");
-			ch = sc.nextInt();
+		while(!endTask) {
 			
-			switch (ch) {
-				case 1: {
-					System.out.print("\tEnter the file that you want to add : ");
-					String fname = sc.next();
-					f.addFile(fname);
+			DisplayMessage.editMenu();
+			
+			try {
+				ch = sc.nextInt();
+				
+				switch (ch) {
+					case 1: {
+						System.out.print("\tEnter the file that you want to add : ");
+						String fname = sc.next();
+						f.addFile(fname);
+					}
+						break;
+					case 2: {
+						System.out.print("\tEnter the file that you want to delete : ");
+						String fname = sc.next();
+						f.deleteFile(fname);
+					}
+						break;
+					case 3: {
+						System.out.print("\tEnter the file that you want to search for : ");
+						String fname = sc.next();
+						f.searchFile(fname);
+					}
+						break;
+					case 4:
+						endTask = true;
+						break;
+					default: {
+						System.out.println("\t[INVALID INPUT] Try again.");
+					}
+						break;
 				}
-					break;
-				case 2: {
-					System.out.print("\tEnter the file that you want to delete : ");
-					String fname = sc.next();
-					f.deleteFile(fname);
-				}
-					break;
-				case 3: {
-					System.out.print("\tEnter the file that you want to search for : ");
-					String fname = sc.next();
-					f.searchFile(fname);
-				}
-					break;
-				case 4:
-					endTask = true;
-					break;
-				default: {
-					System.out.println("\t[INVALID INPUT] Try again.");
-				}
-					break;
+			} catch (Exception e) {
+				System.out.println("\t[REQUIRE NUMERIC INPUT] Try again.");
+				sc.nextLine();
 			}
-		} while(!endTask);
-	}
-	
-	public static void clearConsole() {
-		for(int i = 0; i < 25; i++)
-			System.out.println("");
+			
+			
+		}
 	}
 	
 }
