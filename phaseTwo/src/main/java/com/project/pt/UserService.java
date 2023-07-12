@@ -83,10 +83,10 @@ public class UserService {
 			if(!user.isPresent()) {
 				return "Invalid Credentials";
 			}
-			urepo.deleteById(user.get().getId());
-			urepo.save(details);
+			user.get().setPassword(details.getPassword());
+			urepo.save(user.get());
 			return "Succesfully updated!";
-						
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return "Could not update password. Try again.";

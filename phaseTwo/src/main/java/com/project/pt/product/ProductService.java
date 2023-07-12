@@ -49,10 +49,13 @@ public class ProductService {
 	public String updateProduct(ProductEntity product) {
 		try {
 			Optional<ProductEntity> prod = prepo.findById(product.getP_id());
-			if(!prod.isPresent())
+			if(!prod.isPresent()) {
 				return "Invalid Product ID.";
-			prepo.deleteById(prod.get().getP_id());
-			prepo.save(product);
+			}
+			prod.get().setCat_id(product.getCat_id());
+			prod.get().setCat_name(product.getCat_name());
+			prod.get().setP_name(product.getP_name());
+			prepo.save(prod.get());
 			return "Updated product successfully!";
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
