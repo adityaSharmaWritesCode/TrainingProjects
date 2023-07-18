@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+  background-color: yellowgreen;
+}
+
+.Loading-Indicator {
+  margin: 18em 0 18em 0;
+  width: 100%;
+  background-color: white;
+}
+
+.Header {
+  background-color: yellow;
+}
+
+.Search-Div {
+  display: flex;
+  justify-content: center;
+}
+
+.Search-Bar {
+  border-style: solid black;
+  margin: 1em;
+  width: 35%;
+}
+
+.not-found-div {
+  justify-content: center;
+  align-items: center;
+  height: 29em;
+}
+
+.List-Container {
+  min-height: 29em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: column;
+  justify-content: center;
+}
+
+.Card {
+  display: flex;
+  flex-direction: column;
+  background-color: ghostwhite;
+  width: 15%; 
+  /* height: fit-content; */
+  padding: 1em;
+  padding-bottom: 0;
+  margin: 1em;
+  flex-wrap: wrap;
+}
+
+.Card:hover {
+  transform: scale(1.05, 1.05);
+  border-color: black;
+}
+
+.pokemon-modal {
+  text-align: center;
+}
+
+.modal-img {
+  max-width: 80%;
+  max-height: 15em;
+}
+
+.stat-bar {
+  transform: scale(0.95, 0.6); 
+}
+
+.card-stat-label {
+  text-align: right;
+  /* font-size: small; */
+  padding-left: 0;
+  padding-right: 0;
+  vertical-align : text-top;
+  /* background-color: aqua; */
+}
+
+.card-stat-bar {
+  text-align: right;
+  padding-right: 0;
+}
+
+.Footer { 
+  padding: 1em; 
+}
+
+.footer-text { 
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+.pagination { 
+  justify-content: center;
+}
+
+.page-button {
+  width: 5em;
+  margin: 0em 1em 0em 1em;
+}
