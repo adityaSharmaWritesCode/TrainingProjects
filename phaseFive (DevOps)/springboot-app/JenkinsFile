@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                url: 'https://github.com/adityaSharmaWritesCode/phase5 (DevOps).git'
+            }
+        }
+
+        stage('Build Maven Project') {
+            steps {
+                sh "mvn clean package"
+            }
+        }
+
+        stage('Build and Push Docker Image') {
+            environment {
+                DOCKER_IMAGE_NAME = 'my_spring_boot_app'
+                DOCKER_REGISTRY = 'your-docker-registry.com'
+                DOCKER_IMAGE_TAG = 'latest'
+            }
+            steps {
+                sh "docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ."
+
+                sh "docker tag ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
+
+                sh "docker push ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
+            }
+        }
+
+        stage('Deploy') {
+            environment {
+                DOCKER_COMPOSE_PATH = 'path/to/your/docker-compose.yml'
+            }
+            steps {
+                // Deploy the Docker Compose project
+                sh "docker-compose -f ${DOCKER_COMPOSE_PATH} up -d"
+            }
+        }
+    }
+}
